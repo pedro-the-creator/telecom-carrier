@@ -23,12 +23,27 @@ def list_numbers():
     page = request.args.get("page", 1, type=int)
     per_page = request.args.get("size", 10, type=int)
     numbers = DIDNumber.query.paginate(page=page, per_page=per_page)
-    return jsonify([{"id": n.id, "value": n.value} for n in numbers.items])
+    result = [{
+        "id": n.id,
+        "value": n.value,
+        "monthly_price": float(n.monthly_price),  
+        "setup_price": float(n.setup_price),      
+        "currency": n.currency
+    } for n in numbers.items]
+    
+    return jsonify(result)
 
 @bp.route("/numbers/<int:id>", methods=["GET"])
 def get_number(id):
     number = DIDNumber.query.get_or_404(id)
-    return jsonify({"id": number.id, "value": number.value})
+    result = {
+        "id": number.id,
+        "value": number.value,
+        "monthly_price": float(number.monthly_price),  
+        "setup_price": float(number.setup_price),      
+        "currency": number.currency    
+    }
+    return jsonify(result)
 
 @bp.route("/numbers/<int:id>", methods=["PUT"])
 def update_number(id):
