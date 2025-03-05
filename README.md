@@ -23,6 +23,8 @@ This project is a RESTful API developed in Python using the Flask framework to m
 
 • Docker Compose (version 1.25 or higher)
 
+• Postman or Insomnia (for API testing)
+
 ### Steps to Run
 
 #### 1. Clone the repository:
@@ -82,3 +84,19 @@ flask db upgrade
 ```bash
 exit
 ```
+
+## API testing
+
+The API will be available at http://localhost:5000.
+
+### API Endpoints
+
+• GET /numbers: Returns all phone numbers.
+
+• GET /numbers/{id}: Returns a specific phone number.
+
+• POST /numbers: Creates a new phone number.
+
+• PUT /numbers/{id}: Updates an existing phone number.
+
+• DELETE /numbers/{id}: Deletes a phone number.
