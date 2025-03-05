@@ -91,12 +91,84 @@ The API will be available at http://localhost:5000.
 
 ### API Endpoints
 
-• GET /numbers: Returns all phone numbers.
+#### • GET 
 
-• GET /numbers/{id}: Returns a specific phone number.
+```bash
+/numbers
+```
 
-• POST /numbers: Creates a new phone number.
+Returns all phone numbers.
 
-• PUT /numbers/{id}: Updates an existing phone number.
+#### • GET 
 
-• DELETE /numbers/{id}: Deletes a phone number.
+```bash
+/numbers/{id}
+```
+
+Returns a specific phone number.
+
+#### • POST 
+
+```bash
+/numbers
+```
+
+Creates a new phone number.
+
+#### • PUT 
+
+```bash
+/numbers/{id} 
+```
+
+Updates an existing phone number.
+
+#### • DELETE 
+
+```bash
+/numbers/{id}
+```
+
+Deletes a phone number.
+
+### Example Requests
+
+#### • Create a phone number:
+
+```bash
+{
+    "value": "+55 84 91234-4321",
+    "monthyPrice": "0.03",
+    "setupPrice": "3.40",
+    "currency": "U$"
+}
+```
+
+#### • List all phone numbers:
+
+```bash
+http://localhost:5000/numbers
+```
+
+#### • List a specific phone numbers:
+
+```bash
+http://localhost:5000/numbers/{id}
+```
+
+#### • Update a phone number:
+
+```bash
+{
+    "value": "+55 84 91234-4321",
+    "monthyPrice": "0.04",
+    "setupPrice": "3.50",
+    "currency": "U$"
+}
+```
+
+#### • Delete a phone number:
+
+```bash
+http://localhost:5000/numbers/{id}
+```
