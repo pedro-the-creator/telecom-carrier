@@ -1,15 +1,15 @@
 from flask import Flask
 from flask_migrate import Migrate
 from app.database import db
-from app.routes import bp as api_blueprint
+from app.routes import bp
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object("app.config.Config")
 
     db.init_app(app)
-    migrate = Migrate(app, db)
+    Migrate(app, db)
     
-    app.register_blueprint(api_blueprint)
+    app.register_blueprint(bp)
 
     return app
