@@ -8,3 +8,4 @@ class DIDNumber(db.Model):
     monthly_price = db.Column(db.Numeric(10, 2), nullable=False)
     setup_price = db.Column(db.Numeric(10, 2), nullable=False)
     currency = db.Column(db.String(5), nullable=False)
+    
